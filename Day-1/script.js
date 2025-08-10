@@ -45,5 +45,35 @@
 // }
 // sum(5);
 
+// let users = [
+//   { name: "Sonia", age: 23 },
+//   { name: "Ravi", age: 17 },
+//   { name: "Priya", age: 25 }
+// ];
+
+// let newuser = users.map(function(user) {
+//     return user.name
+// })
+// console.log(newuser)
+
+// let newuser2 = users.filter(function(user) {
+//     return user.age > 18;
+// })
+// console.log(newuser2);
+
+// let newuser3 = users.find(function(user) {
+//     return user.age > 18;
+// })
+// console.log(newuser3);
 
 
+// Elements select karna
+let title = document.getElementById("title");
+let nameInput = document.getElementById("nameInput");
+let btn = document.getElementById("btn");
+
+// Event lagana
+btn.addEventListener("click", function() {
+    let newName = nameInput.value; // input ka value lena
+    title.innerText = `Hello, ${newName}!`; // h1 me set karna
+});
