@@ -119,3 +119,69 @@ const Login = () => {
 };
 
 export default Login;
+
+
+/---------------------------E-commerce with Api call------------------------------/
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+
+const Products = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const res = await axios.get("https://fakestoreapi.com/products");
+      setProducts(res.data);
+    };
+    fetchProducts();
+  }, []);
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <h2>E-Commerce Store</h2>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "25px",
+        }}
+      >
+        {products.map((p) => (
+          <div
+            key={p.id}
+            style={{
+              border: "1px solid #ccc",
+              borderRadius: "10px",
+              padding: "15px",
+              textAlign: "center",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            }}
+          >
+            <img
+              src={p.image}
+              alt={p.title}
+              style={{ width: "100px", height: "100px", objectFit: "contain" }}
+            />
+            <h4 style={{ fontSize: "14px", margin: "10px 0" }}>{p.title}</h4>
+            <p style={{ fontWeight: "bold" }}>${p.price}</p>
+            <button
+              style={{
+                backgroundColor: "#007bff",
+                color: "white",
+                border: "none",
+                padding: "8px 12px",
+                borderRadius: "5px",
+                cursor: "pointer",
+              }}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+export default Products;
+
