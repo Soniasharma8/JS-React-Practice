@@ -1,0 +1,121 @@
+/---------------------------SignUp Form------------------------------/
+import { useState } from "react";
+import axios from "axios";
+
+const SignUp = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cnfmpassword, setCnfmpassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let signupData = {
+      fullName: username,
+      email: email,
+      password: password,
+      confirmPassword: cnfmpassword,
+    };
+    const res = await axios.post(
+      "https://hr-admin-server.onrender.com/api/auth/register",
+      signupData
+    );
+    if (res.status == 201) {
+      console.log(res);
+    }
+    // let users = localStorage.setItem('users', JSON.stringify(users));
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>Full Name: </label>
+        <input
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          type="text"
+          placeholder="Full Name"
+        />
+        <br />
+        <label>Email: </label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Email"
+        />
+        <br />
+        <label>Password: </label>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Password"
+        />
+        <br />
+        <label>Confirm Password: </label>
+        <input
+          value={cnfmpassword}
+          onChange={(e) => setCnfmpassword(e.target.value)}
+          type="password"
+          placeholder="Confirm Password"
+        />
+        <br />
+        <button type="submit">Submit </button>
+      </form>
+    </>
+  );
+};
+
+export default SignUp;
+
+/---------------------------Login Form------------------------------/
+
+import { useState } from "react";
+import axios from "axios";
+
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    let loginData = {
+      email: email,
+      password: password,
+    };
+    const res = axios.post(
+      "https://hr-admin-server.onrender.com/api/auth/login",
+      loginData
+    );
+    if (res.status == 201) {
+      console.log(res);
+    }
+  };
+
+  return (
+    <>
+      <form onSubmit={handleSubmit}>
+        <label>Email: </label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="Email"
+          placeholder="Email"
+        />
+        <br />
+        <label>Password: </label>
+        <input
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="Password"
+          placeholder="Password"
+        />
+        <br />
+        <button type="submit">Submit </button>
+      </form>
+    </>
+  );
+};
+
+export default Login;
