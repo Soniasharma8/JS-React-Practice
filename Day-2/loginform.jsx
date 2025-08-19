@@ -1,4 +1,4 @@
-/---------------------------SignUp Form------------------------------/
+/*---------------------------SignUp Form------------------------------*/
 import { useState } from "react";
 import axios from "axios";
 
@@ -69,7 +69,7 @@ const SignUp = () => {
 
 export default SignUp;
 
-/---------------------------Login Form------------------------------/
+/*---------------------------Login Form------------------------------*/
 
 import { useState } from "react";
 import axios from "axios";
@@ -121,7 +121,7 @@ const Login = () => {
 export default Login;
 
 
-/---------------------------E-commerce with Api call------------------------------/
+/*---------------------------E-commerce with Api call------------------------------*/
 
 import { useState, useEffect } from "react";
 import axios from "axios";
