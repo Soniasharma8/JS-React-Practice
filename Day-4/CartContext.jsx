@@ -85,3 +85,62 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
+
+/*------------------------------------End o the code------------------------------------------*/
+import { createContext, useContext, useState, useEffect } from "react";
+
+const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const addToCart = (product) => {
+    console.log("Product added:", product);
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    const exists = cart.find((item) => item.id === product.id);
+    if (exists) {
+      cart.map((item) =>
+        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+      );
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log("Updated cart:", cart);
+  };
+
+  const removeFromCart = (id) => {
+    let Cart = cart.filter((item) => item.id !== id);
+    console.log(Cart);
+  };
+
+  return (
+    <CartContext.Provider value={{ cart, removeFromCart, addToCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export const useCart = () => useContext(CartContext);
+
+const addToCart = (product) => {
+  console.log(product);
+
+let cart = JSON.parse(localStorage.getItem)
+
+};
+
