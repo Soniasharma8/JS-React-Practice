@@ -86,7 +86,7 @@ export const CartProvider = ({ children }) => {
 
 export const useCart = () => useContext(CartContext);
 
-/*------------------------------------End o the code------------------------------------------*/
+/*------------------------------------End of the day code------------------------------------------*/
 import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
