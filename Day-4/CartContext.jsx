@@ -144,3 +144,62 @@ let cart = JSON.parse(localStorage.getItem)
 
 };
 
+
+/*------------------------------------Cart value updated code------------------------------------------*/
+
+import { createContext, useContext, useState, useEffect } from "react";
+
+const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
+
+  // 1️⃣ Page load hone par localStorage se data nikaal lo
+  useEffect(() => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      setCart(JSON.parse(savedCart));
+    }
+  }, []);
+
+  // 2️⃣ Jab bhi cart change ho, localStorage me save kar do
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  // --- Cart functions ---
+  const addToCart = (product) => {
+    const exists = cart.find((item) => item.id === product.id);
+    if (exists) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        )
+      );
+    } else {
+      setCart([...cart, { ...product, qty: 1 }]);
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
+
+  const decreaseQty = (id) => {
+    const updatedCart = cart
+      .map((item) => (item.id === id ? { ...item, qty: item.qty - 1 } : item))
+      .filter((item) => item.qty > 0);
+
+    setCart(updatedCart);
+  };
+
+  return (
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, decreaseQty }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export const useCart = () => useContext(CartContext);
