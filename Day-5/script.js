@@ -94,3 +94,30 @@ function square(number) {
 }
 console.log(square(5));  // Output: 25
 console.log(square(9));  // Output: 81
+
+/* 3. Write a function isEven(num) that checks whether a number is even or odd.If the number is even → return true If the number is odd → return false */\
+function isEven(num) {
+    return num % 2 === 0; 
+}
+console.log(isEven(4)); // true
+console.log(isEven(5)); // false
+
+/* 4. Write a function calculateTotal(cart) that returns the total price of the cart array. */
+let cart = [100, 250, 50]; 
+function calculateTotal(cart) {
+    return cart.reduce((sum, item) => sum + item, 0);
+}
+console.log(calculateTotal(cart)); // 400
+
+/* 5. Write a function findMax(arr) that returns the largest number in the array. */
+let numbers = [12, 45, 78, 23, 56]; 
+function findMax(arr) {
+    return Math.max(...arr); 
+}
+console.log(findMax([12, 45, 78, 23, 56]));
+
+
+
+
+
+
