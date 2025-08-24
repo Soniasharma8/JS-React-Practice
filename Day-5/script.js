@@ -148,8 +148,117 @@ function filterOdd(num) {
 }
 console.log(filterOdd(arr));
 
-/* 10. Write a function findSum(arr) that returns the sum of all numbers in the array. */
-  
+/* -------------------- Array Methods Practice Set -------------------- */
+// 1.
+    let num = [1,2,3,4,5];
+    function newArr(sum) {
+        return sum.map((item) => item * 2);
+    }
+    console.log(newArr(num));
+
+
+  // 2.
+let str = ["a", "b", "c"];
+    function newStr(a) {
+        return a.map((item) => item.toUpperCase());
+    }
+
+    console.log(newStr(str));
+// 3.
+    let num = [10, 25, 30, 45, 60];
+    function min(a) {
+        return a.filter((item) => item < 30);
+    }
+console.log(min(num));
+
+// 4.
+let num1 = [2, 5, 8, 11, 14];
+function findEven(b) {
+    return b.filter((item) => item % 2 === 0);
+}
+
+console.log(findEven(num1));
+//5.
+
+let num = [5, 10, 15];
+function newSum(a) {
+    return a.reduce((acc, item) => item + acc, 0);
+}
+
+console.log(newSum(num));
+
+//6. 
+let num1 = [2, 3, 4];
+function newArr(b) {
+    return b.reduce((accc, item) => item * accc, 1)
+}
+
+console.log(newArr(num1));
+
+//7.
+let num = [3, 7, 12, 18, 21];
+function newArr(a) {
+    return a.find((item) => item > 10)
+}
+
+console.log(newArr(num));
+
+//8.
+let str = ["apple", "banana", "cherry"];
+function newStr(c) {
+    return c.find((item) => item === "banana")
+}
+
+console.log(newStr(str))
+
+//9.
+let num = [1, 2, 3, 4, 5];
+function newNum(a) {
+    return a.some((item) => item > 4)
+}
+
+console.log(newNum(num));
+
+//10.
+let str = ["dog", "cat", "lion"];
+function newStr(b) {
+    return b.some((item) => item === "tiger" )
+}
+
+console.log(newStr(str));
+
+//11.
+let num = [2, 4, 6, 8];
+function findEven(a) {
+    return a.every((item) => item % 2 === 0)
+}
+
+console.log(findEven(num));
+
+//12.
+let num1 = [5, 10, 15, 20];
+function findBig(b) {
+    return b.every((item) => item > 0)
+}
+console.log(findBig(num1));
+
+//13.
+let num = ["red", "blue", "green"];
+function newColor(a) {
+    return a.includes('blue')
+}
+
+console.log(newColor(num));
+
+//14.
+let num1 = [100, 200, 300];
+function findVal(b) {
+    return b.includes(500)
+}
+
+console.log(findVal(num1));
+
+
 
 
 
