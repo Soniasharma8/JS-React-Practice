@@ -116,6 +116,48 @@ function findMax(arr) {
 }
 console.log(findMax([12, 45, 78, 23, 56]));
 
+/* 6. Write a function findMax(arr) that returns the biggest number from the array. */
+let num = [10, 45, 32, 99, 7];
+function findMax(arr) {
+    return Math.max(...arr)
+}
+console.log(findMax([10, 45, 32, 99, 7]));
+
+/* 7. Write a function findMin(arr) that returns the smallest number from the array. */
+
+let num = [10, 45, 32, 99, 7];
+function findMin(arr) {
+    return Math.min(...arr)
+}
+console.log(findMin([10, 45, 32, 99, 7]));
+
+/* 8. Write a function filterEven(arr) that returns only the even numbers from the array. */
+
+let arr = [2, 5, 8, 11, 14];
+function filterEven(num) { 
+   return num.filter((item) => item % 2 === 0);
+}
+console.log(filterEven(arr));
+
+
+/* 9. Write a function filterOdd(arr) that returns only the odd numbers from the array. */
+
+let arr = [2, 5, 8, 11, 14];
+function filterOdd(num) {
+    return arr.filter((item) => item % 2 === 1);
+}
+console.log(filterOdd(arr));
+
+/* 10. Write a function findSum(arr) that returns the sum of all numbers in the array. */
+  
+
+
+
+
+
+
+
+
 
 
 
