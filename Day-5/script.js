@@ -291,8 +291,73 @@ let a4 = "apple,banana,grapes";
 let b4 = a4.split(",");      
 console.log(b4[b4.length - 1]);  // "grapes"
 
+Here’s the **English-only conversion** of your questions 👇
 
+/*1. Create an object `car` with properties: `brand`, `model`, and `year`.
+   * Print its `brand`.
+   * Add a new property `color`.
 
+2. Create an object `person` with properties: `name`, `age`, and `city`.
+   * Update the `age`.
+   * Delete the `city`.
+
+3. Create an object `laptop` with properties: `brand`, `price`, and a nested object `specs` containing `ram` and `storage`.
+   * Print the `ram`.
+
+4. Use a **for...in** loop to print all keys and values of an object.
+5. Write a function that takes a `student` object and prints its `name` and `age`.
+*/
+// 1.
+let car = {
+    brand: "Audi",
+    model: "audi a4",
+    year: 2024,
+}
+car.color= "Blue"
+console.log(car.brand);
+console.log(car);
+
+// 2.
+let person = {
+    name: "Sonia",
+    age: 23,
+    city: "Ludhiana",
+}
+person.age = 22;
+delete person.city;
+console.log(person);
+
+// 3.
+let laptop = {
+    brand: "Dell",
+    price: 55000,
+    specs: {
+        ram: "8GB",
+        storage: "512GB"
+    }
+}
+console.log(laptop.specs.ram);
+
+// 4.
+let car1 = {
+    brand: "Audi",
+    model: "audi a4",
+    year: 2024,
+}
+ for(let key in car1) {
+    console.log(key + " : " + car1[key]);
+ }
+
+//5.
+ let person1 = {
+    name: "Sonia",
+    age: 23,
+}
+function person2(obj) {
+    console.log("Name: " + obj.name);
+    console.log("Age: " + obj.age);
+}
+person2(person1);
 
 
 
