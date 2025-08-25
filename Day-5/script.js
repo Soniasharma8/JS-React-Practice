@@ -258,9 +258,38 @@ function findVal(b) {
 
 console.log(findVal(num1));
 
+/* --------------------Next Day Practice -------------------- */
 
+// Questions 1. Take a string `" MERN Stack Developer "`, clean it (remove extra spaces), and print it in all capital letters.
+// 2. Take an array `["React", "Node", "MongoDB"]` and convert it into a single string.
+// 3. Take a string `"JavaScript is awesome"` and print the first word.
+// 4. Take an array `[50, 10, 70, 20]`, sort it, and then reverse it.
+// 5. Take a string `"apple,banana,grapes"`, split it into an array, and print the last fruit.
 
+// 1. Capital letters
+let abc = "MERN Stack Developer";
+let a = abc.trim().toUpperCase();
+console.log(a);  // "MERN STACK DEVELOPER"
 
+// 2. Array to string
+let a1 = ["React", "Node", "MongoDB"];
+let b1 = a1.join(" ");   
+console.log(b1);  // "React Node MongoDB"
+
+// 3. First word of string
+let a2 = "JavaScript is awesome";
+let b2 = a2.split(" ")[0];   
+console.log(b2);  // "JavaScript"
+
+// 4. Sort + reverse
+let a3 = [50, 10, 70, 20];
+let b3 = a3.sort((x, y) => x - y).reverse();  
+console.log(b3);  // [70, 50, 20, 10]
+
+// 5. Last fruit from string
+let a4 = "apple,banana,grapes";
+let b4 = a4.split(",");      
+console.log(b4[b4.length - 1]);  // "grapes"
 
 
 
