@@ -108,3 +108,80 @@ function welcome() {
   return <h2>Hello World!</h2>;
 }
 export default welcome;
+
+//Counter Practice
+import { useState, useEffect } from "react";
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleIncrease() {
+    setCount(count + 1);
+    console.log("Button Clicked! Clicked is", count + 1);
+    // alert("clicked me")
+  }
+
+  function handleClick() {
+    console.log("Button clicked!");
+    
+  }
+
+
+  function handleMouseEnter() {
+    console.log("Mouse Entered");
+    
+  }
+
+  useEffect(() => {
+    console.log("Counter value:", count);
+  }, [count]);
+
+  return (
+    <>
+      <h2>Count: {count}</h2>
+      <button onClick={handleIncrease}  >Increase</button>
+      { <button onClick={() => setCount(count + 1)}>Increase</button> }
+  <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+      <button onClick={handleClick} onMouseEnter={handleMouseEnter}></button>
+      
+   
+    </>
+  );
+}
+export default Counter;
+
+//Todo list
+import { useState, useEffect } from "react";
+function ToDoList() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInputs] = useState("");
+
+  const addToDo = () => {
+    if (input.trim() === "") return;
+    setTodos([...todos, input]);
+    setInputs("");
+  };
+  useEffect(() => {
+    console.log("Todo List:", todos);
+  }, [todos]);
+
+  return (
+    <div>
+      <h2>ToDo List</h2>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInputs(e.target.value)}
+        placeholder="Enter Task"
+      />
+      <button onClick={addToDo}>Add</button>
+
+      <ul>
+        {todos.map((task, index) => (
+          <li key={index}>{task}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default ToDoList;
