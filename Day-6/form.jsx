@@ -101,3 +101,10 @@ export default function Login() {
     </div>
   );
 }
+
+
+// 1. Function Components (basic use)
+function welcome() {
+  return <h2>Hello World!</h2>;
+}
+export default welcome;
