@@ -98,3 +98,55 @@ function App() {
   return <User name="Sonia" age={22} />;
 }
 export default App;
+
+/* -------------------- Task-1 get users list -------------------- */
+import axios from "axios";
+
+async function getUsers() {
+  try {
+    const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+    console.log("Users: ", res.data);
+  } catch (error) {
+    console.log("Error fetching users: ", error.message);
+  }
+}
+
+getUsers();
+
+/* -------------------- Task 2 Post create users -------------------- */
+
+import axios from "axios";
+
+async function userName() {
+  try {
+    const res = await axios.post("https://jsonplaceholder.typicode.com/posts", {
+      name: "sonia",
+      email: "sonia@mail.com",
+    });
+
+    console.log("users: ", res.data);
+  } catch (error) {
+    console.log("Error fetching messages: ", error.message);
+  }
+}
+
+export default userName();
+
+/* -------------------- Task 3 delete users  -------------------- */
+
+export default userName();
+
+import axios from "axios";
+
+async function deleteUser() {
+  try {
+    const res = await axios.delete(
+      "https://jsonplaceholder.typicode.com/posts/1"
+    );
+    console.log("User Deleted, Status:", res.status);
+  } catch (error) {
+    console.error("Error deleting user:", error.message);
+  }
+}
+
+deleteUser();
